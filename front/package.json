@@ -12,7 +12,7 @@
   "devDependencies": {
     "@t3headless/nuxt-typo3": "^2.0.0",
     "nuxt": "3.16.2",
-    "typescript": "^5.2.2",
+    "typescript": "^5.8.3",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },

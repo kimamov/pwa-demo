@@ -1,30 +1,36 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+    devtools: {enabled: true},
 
-  modules: [
-    '@t3headless/nuxt-typo3'
-  ],
+    modules: [
+        '@t3headless/nuxt-typo3'
+    ],
 
-  extends: '@t3headless/nuxt-typo3-ui',
+    extends: '@t3headless/nuxt-typo3-ui',
 
-  typo3: {
-    i18n: {
-      default: 'en',
-      locales: ['en', 'pl', 'de']
+    typo3: {
+        i18n: {
+            default: 'en',
+            locales: ['en', 'pl', 'de']
+        },
+        api: {
+            // baseUrl: process.env.API_BASE || 'https://api.t3pwa.com'
+            baseUrl: process.env.API_BASE || 'https://pwa-demo.ddev.site/headless'
+        }
     },
-    api: {
-      // baseUrl: process.env.API_BASE || 'https://api.t3pwa.com'
-      baseUrl: process.env.API_BASE || 'https://pwa-demo.ddev.site/headless'
-    }
-  },
+    // components: {
+    //     dirs: [{
+    //         path: ' @/components/global',
+    //         global: true
+    //     }],
+    // },
 
-  vite: {
-    // Vite settings for development mode on DDEV
-    server: {
-      allowedHosts: ['app_upstream', 'pwa-demo.ddev.site'],
-    }
-  },
+    vite: {
+        // Vite settings for development mode on DDEV
+        server: {
+            allowedHosts: ['app_upstream', 'pwa-demo.ddev.site'],
+        }
+    },
 
-  compatibilityDate: '2025-05-06',
+    compatibilityDate: '2025-05-06',
 })
