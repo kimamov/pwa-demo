@@ -26,11 +26,7 @@
 	],
 	"require": {
 		"php": "^8.3",
-		"friendsoftypo3/content-blocks": "^1.1",
 		"friendsoftypo3/headless": "^4.6",
-		"mask/mask": "^9.0",
-		"netzbewegung/nb-headless-content-blocks": "^0.0.12",
-		"skygate/sitepackage": "dev-master",
 		"typo3/cms-adminpanel": "^13.4",
 		"typo3/cms-backend": "^13.4",
 		"typo3/cms-belog": "^13.4",

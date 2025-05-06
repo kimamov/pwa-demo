@@ -1,23 +1,19 @@
 base: 'https://api.pwa-demo.ddev.site'
+frontendBase: 'https://pwa-demo.ddev.site'
+frontendApiProxy: 'https://pwa-demo.ddev.site/headless'
+frontendFileApi: 'https://pwa-demo.ddev.site/headless/fileadmin'
 baseVariants:
-  -
-    base: 'https://api.t3pwa.com'
+  - base: 'https://api.t3pwa.com'
     condition: 'applicationContext == "Production/Production"'
     frontendBase: 'https://demo.t3pwa.com'
     frontendApiProxy: 'https://demo.t3pwa.com/headless'
     frontendFileApi: 'https://demo.t3pwa.com/headless/fileadmin'
-dependencies:
-  - skygate/sitepackage
-  - nb-headless-content-blocks/headless-content-blocks
 errorHandling:
   -
     errorCode: 404
     errorHandler: Page
     errorContentSource: 't3://page?uid=47'
-frontendApiProxy: 'https://pwa-demo.ddev.site/headless'
-frontendBase: 'https://pwa-demo.ddev.site'
-frontendFileApi: 'https://pwa-demo.ddev.site/headless/fileadmin'
-headless: 1
+headless: true
 languages:
   -
     languageId: 0
@@ -60,5 +56,29 @@ languages:
     fallbacks: '0'
     enabled: true
 rootPageId: 43
-routeEnhancers: null
 websiteTitle: 'TYPO3 Headless & PWA Demo'
+routes: []
+routeEnhancers:
+  # News:
+  #   type: Extbase
+  #   extension: News
+  #   plugin: Pi1
+  #   routes:
+  #     - routePath: '/'
+  #       _controller: 'News::list'
+  #     - routePath: '/page/{page}'
+  #       _controller: 'News::list'
+  #       _arguments:
+  #         page: currentPage
+  #     - routePath: '/{news-title}'
+  #       _controller: 'News::detail'
+  #       _arguments:
+  #         news-title: news
+  #   defaultController: 'News::list'
+  #   aspects:
+  #     page:
+  #       type: StaticRangeMapper
+  #       start: '1'
+  #       end: '100'
+  #     news-title:
+  #       type: NewsTitle
