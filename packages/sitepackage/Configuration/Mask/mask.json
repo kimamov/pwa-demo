@@ -1,0 +1,84 @@
+{
+    "version": "8.1.0",
+    "restructuringDone": false,
+    "tables": {
+        "tt_content": {
+            "elements": {
+                "herosection": {
+                    "color": "#000000",
+                    "colorOverlay": "#000000",
+                    "columns": [
+                        "tx_mask_name",
+                        "tx_mask_age",
+                        "tx_mask_text"
+                    ],
+                    "description": "",
+                    "descriptions": [
+                        "",
+                        "",
+                        ""
+                    ],
+                    "icon": "",
+                    "iconOverlay": "",
+                    "key": "herosection",
+                    "label": "herosection",
+                    "labels": [
+                        "Name",
+                        "Age",
+                        "Text"
+                    ],
+                    "shortLabel": "",
+                    "sorting": 0
+                }
+            },
+            "sql": {
+                "tx_mask_age": {
+                    "tt_content": {
+                        "tx_mask_age": "int(11) DEFAULT '0' NOT NULL"
+                    }
+                },
+                "tx_mask_name": {
+                    "tt_content": {
+                        "tx_mask_name": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_text": {
+                    "tt_content": {
+                        "tx_mask_text": "mediumtext"
+                    }
+                }
+            },
+            "tca": {
+                "tx_mask_age": {
+                    "config": {
+                        "default": "33",
+                        "nullable": 0,
+                        "type": "number"
+                    },
+                    "fullKey": "tx_mask_age",
+                    "key": "age",
+                    "type": "integer"
+                },
+                "tx_mask_name": {
+                    "config": {
+                        "default": "Cunt",
+                        "nullable": 0,
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_name",
+                    "key": "name",
+                    "type": "string"
+                },
+                "tx_mask_text": {
+                    "config": {
+                        "enableRichtext": 1,
+                        "type": "text"
+                    },
+                    "fullKey": "tx_mask_text",
+                    "key": "text",
+                    "type": "richtext"
+                }
+            }
+        }
+    }
+}
