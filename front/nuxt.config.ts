@@ -11,7 +11,8 @@ export default defineNuxtConfig({
       locales: ['en', 'pl', 'de']
     },
     api: {
-      baseUrl: 'https://pwa-demo.ddev.site/headless'
+      // baseUrl: process.env.API_BASE || 'https://api.t3pwa.com'
+      baseUrl: process.env.API_BASE || 'https://pwa-demo.ddev.site/headless'
     }
   },
   vite: {
