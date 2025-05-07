@@ -17,6 +17,9 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@t3headless/nuxt-typo3-ui": "^1.1.0"
+    "@formkit/nuxt": "^1.6.9",
+    "@formkit/themes": "^1.6.9",
+    "@t3headless/nuxt-typo3-ui": "^1.1.0",
+    "formkit": "^1.6.9"
   }
 }
