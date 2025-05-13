@@ -1,0 +1,9 @@
+name: skygate/test
+typeName: skygate_test
+group: default
+prefixFields: true
+prefixType: full
+fields:
+  -
+    identifier: header
+    useExistingField: true

@@ -7,6 +7,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'bootstrap_package' => '15.0.0-15.99.99',
+            'contentblocks/contentblocks' => "*",
             'netzbewegung/nb_headless_content_blocks' => ''
         ],
         'conflicts' => [

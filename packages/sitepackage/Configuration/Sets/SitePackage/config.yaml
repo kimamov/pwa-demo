@@ -2,4 +2,3 @@ name: skygate/sitepackage
 label: 'sitepackage'
 dependencies:
   - bootstrap-package/full
-  - netzbewegung/nb_headless_content_blocks
