@@ -7,8 +7,8 @@ baseVariants:
     frontendApiProxy: 'https://demo.t3pwa.com/headless'
     frontendFileApi: 'https://demo.t3pwa.com/headless/fileadmin'
 dependencies:
-  - friendsoftypo3/headless
   - skygate/sitepackage
+  - friendsoftypo3/headless
   - nb-headless-content-blocks/headless-content-blocks
 errorHandling:
   -

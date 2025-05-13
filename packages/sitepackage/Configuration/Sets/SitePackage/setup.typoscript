@@ -19,3 +19,49 @@ page {
         sitepackage_scripts = EXT:sitepackage/Resources/Public/JavaScript/main.js
     }
 }
+
+# from nb-headless-content-blocks
+# lib.contentBlockHeadless =< lib.contentElement
+# lib.contentBlockHeadless {
+#     fields {
+#         data = TEXT
+#         data {
+#             dataProcessing {
+#                 10 = nb-content-blocks-json
+#                 10.as = data
+#             }
+#         }
+#     }
+# }
+
+tt_content.skygate_test = JSON
+tt_content.skygate_test {
+    fields {
+        appearance =< lib.appearance
+
+        colPos = INT
+        colPos {
+            field = colPos
+        }
+
+        data = TEXT
+        data {
+            dataProcessing {
+                10 = nb-content-blocks-json
+                10.as = data
+            }
+        }
+
+        id = INT
+        id {
+            field = uid
+        }
+
+        type = TEXT
+        type {
+            field = CType
+        }
+    }
+}
+
+tt_content.typo3headless_hero =< lib.contentElementWithHeader
