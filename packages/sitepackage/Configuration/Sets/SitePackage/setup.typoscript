@@ -34,6 +34,7 @@ page {
 #     }
 # }
 
+
 tt_content.skygate_test = JSON
 tt_content.skygate_test {
     fields {
@@ -44,8 +45,8 @@ tt_content.skygate_test {
             field = colPos
         }
 
-        data = TEXT
-        data {
+        content = TEXT
+        content {
             dataProcessing {
                 10 = nb-content-blocks-json
                 10.as = data
@@ -63,5 +64,7 @@ tt_content.skygate_test {
         }
     }
 }
+
+
 
 tt_content.typo3headless_hero =< lib.contentElementWithHeader

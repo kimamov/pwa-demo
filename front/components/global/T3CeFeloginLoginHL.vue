@@ -45,23 +45,11 @@ function submitForm(formValues, node){
 
     // const formData=new FormData(formValues);
     // console.log(formData)
-
 }
-// onMounted(()=>{
-//     console.log("mounted")
-//     requestAnimationFrame(()=>{
-//         const form=document.querySelector('form')
-//         console.log(form)
-//         if(form){
-//             form.action=`/headless`+form.action;
-//         }
-//     })
-// })
 </script>
 
 <template>
    <h1>FE LOGIN PLACEHOLDER</h1>
-<!--    <div v-html="data"></div>-->
     <FormKit
         :action="`https://pwa-demo.ddev.site/headless${form.action}`"
         :method="form.method"

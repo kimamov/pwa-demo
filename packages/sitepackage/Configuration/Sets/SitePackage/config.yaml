@@ -2,5 +2,6 @@ name: skygate/sitepackage
 label: 'sitepackage'
 dependencies:
   - bootstrap-package/full
+#  - typo3/felogin
   - friendsoftypo3/headless
   - nb-headless-content-blocks/headless-content-blocks
