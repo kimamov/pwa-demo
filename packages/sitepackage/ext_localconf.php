@@ -17,5 +17,5 @@ ExtensionUtility::configurePlugin(
     extensionName: 'Sitepackage',
     pluginName: 'Example',
     controllerActions: [ExampleController::class => 'index'],
-    pluginType: ExtensionUtility::PLUGIN_TYPE_PLUGIN, //TODO deprecated. Should be CType
+    pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );

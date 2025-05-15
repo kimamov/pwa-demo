@@ -14,6 +14,8 @@ class ExampleController extends ActionController
         return $this->jsonResponse(
             json_encode([
                 'test' => 'Example Test',
+                'test2' => 'Hallo',
+                'files' => $this->request->getUploadedFiles(),
             ]),
         );
     }

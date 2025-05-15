@@ -7,13 +7,59 @@ interface T3CePlugin extends T3CeBaseProps {
 
 const props = withDefaults(defineProps<T3CePlugin>(), {})
 console.log({props})
+
+function getFormData(object) {
+    const formData = new FormData();
+    Object.keys(object).forEach(key => formData.append(key, object[key]));
+    return formData;
+}
+
+function submitForm(formValues, node) {
+    $fetch(`https://pwa-demo.ddev.site/headless/example`, {
+        method: 'POST',
+        credentials: "include",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(formValues)
+        // body: getFormData(formValues),
+        // headers: {
+        //     "X-CSRF-Token": "", // 👈👈👈 Set the token
+        //
+        // }
+    }).then(data => {
+        console.log(data)
+    }).catch(e => {
+        console.log(e)
+    })
+
+    // const formData=new FormData(formValues);
+    // console.log(formData)
+
+}
 </script>
 
 <template>
-    <h1>skygate test</h1>
+    <FormKit
+        :action="`https://pwa-demo.ddev.site/headless/example`"
+        method="POST"
+        @submit="submitForm"
+        type="form"
+        submit-label="Login"
+    >
+        <FormKit type="text" label="one" name="one">
+        </FormKit>
+        <FormKit type="text" label="two" name="two">
+        </FormKit>
+        <FormKit type="file" label="image" name="image">
+        </FormKit>
+    </FormKit>
+
+    <h1>Test Hallo</h1>
     <h2>{{ uid }}</h2>
     <h2>{{ header }}</h2>
     <h3>{{ data.test }}</h3>
+    <h3>{{ data.test2 }}</h3>
 </template>
 
 <style scoped>
