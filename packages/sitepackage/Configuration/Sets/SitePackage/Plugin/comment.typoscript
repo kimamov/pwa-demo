@@ -1,18 +1,18 @@
-tt_content.sitepackage_example =< lib.contentElementWithHeader
-tt_content.sitepackage_example {
+tt_content.sitepackage_comment =< lib.contentElementWithHeader
+tt_content.sitepackage_comment {
     fields {
         content {
             fields {
                 data = CASE
                 data {
                     key.field = CType
-                    sitepackage_example = USER
-                    sitepackage_example {
+                    sitepackage_comment = USER
+                    sitepackage_comment {
                         userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
                         vendorName = Skygate
                         extensionName = Sitepackage
-                        pluginName = Example
-                        controller = Example
+                        pluginName = Comment
+                        controller = Comment
                     }
                 }
             }

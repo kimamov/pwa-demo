@@ -1,6 +1,6 @@
 <?php
 
-use Skygate\Sitepackage\Controller\ExampleController;
+use Skygate\Sitepackage\Controller\CommentController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die('Access denied.');
@@ -15,7 +15,8 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.elementBodyResponse'] =
 
 ExtensionUtility::configurePlugin(
     extensionName: 'Sitepackage',
-    pluginName: 'Example',
-    controllerActions: [ExampleController::class => 'index'],
+    pluginName: 'Comment',
+    controllerActions: [CommentController::class => 'list, add'],
+    nonCacheableControllerActions: [CommentController::class => 'list'],
     pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );

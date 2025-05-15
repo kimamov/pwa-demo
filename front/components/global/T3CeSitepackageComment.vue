@@ -2,7 +2,7 @@
 import type {T3CeBaseProps} from '@t3headless/nuxt-typo3';
 
 interface T3CePlugin extends T3CeBaseProps {
-    data?: Array
+    data?: object
 }
 
 const props = withDefaults(defineProps<T3CePlugin>(), {})
@@ -14,7 +14,7 @@ function getFormData(object) {
     return formData;
 }
 
-function submitForm(formValues, node) {
+function submitForm(formValues) {
     $fetch(`https://pwa-demo.ddev.site/headless/example`, {
         method: 'POST',
         credentials: "include",
@@ -28,6 +28,7 @@ function submitForm(formValues, node) {
         //
         // }
     }).then(data => {
+        window.location.reload()
         console.log(data)
     }).catch(e => {
         console.log(e)
@@ -45,21 +46,17 @@ function submitForm(formValues, node) {
         method="POST"
         @submit="submitForm"
         type="form"
-        submit-label="Login"
+        submit-label="Add comment"
     >
-        <FormKit type="text" label="one" name="one">
-        </FormKit>
-        <FormKit type="text" label="two" name="two">
-        </FormKit>
-        <FormKit type="file" label="image" name="image">
-        </FormKit>
+        <FormKit type="text" label="Text" name="text"/>
+        <FormKit type="text" label="Author" name="author"/>
+        <!--        <FormKit type="file" label="image" name="image"/>-->
     </FormKit>
 
-    <h1>Test Hallo</h1>
-    <h2>{{ uid }}</h2>
-    <h2>{{ header }}</h2>
-    <h3>{{ data.test }}</h3>
-    <h3>{{ data.test2 }}</h3>
+    <h1>Comments:</h1>
+    <li v-for="comment in data.comments">
+        "{{ comment.text }}" - <i>{{ comment.author }}</i>
+    </li>
 </template>
 
 <style scoped>

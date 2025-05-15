@@ -6,6 +6,6 @@ defined('TYPO3') or die();
 
 ExtensionUtility::registerPlugin(
     extensionName: 'Sitepackage',
-    pluginName: 'Example',
-    pluginTitle: 'Example Plugin',
+    pluginName: 'Comment',
+    pluginTitle: 'Comment Example Plugin',
 );
