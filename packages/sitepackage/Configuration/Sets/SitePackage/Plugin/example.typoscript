@@ -1,0 +1,21 @@
+tt_content.list =< lib.contentElementWithHeader
+tt_content.list {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = list_type
+                    sitepackage_example = USER
+                    sitepackage_example {
+                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                        vendorName = Skygate
+                        extensionName = Sitepackage
+                        pluginName = Example
+                        controller = Example
+                    }
+                }
+            }
+        }
+    }
+}

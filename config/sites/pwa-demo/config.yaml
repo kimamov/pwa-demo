@@ -8,8 +8,8 @@ baseVariants:
     frontendFileApi: 'https://demo.t3pwa.com/headless/fileadmin'
 dependencies:
   - skygate/sitepackage
-  - typo3/fluid-styled-content
-  - typo3/felogin
+  - friendsoftypo3/headless
+  - nb-headless-content-blocks/headless-content-blocks
 errorHandling:
   -
     errorCode: 404
@@ -18,7 +18,7 @@ errorHandling:
 frontendApiProxy: 'https://pwa-demo.ddev.site/headless'
 frontendBase: 'https://pwa-demo.ddev.site'
 frontendFileApi: 'https://pwa-demo.ddev.site/headless/fileadmin'
-headless: 0
+headless: 1
 languages:
   -
     languageId: 0
