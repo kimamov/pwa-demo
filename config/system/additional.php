@@ -38,6 +38,10 @@ if (getenv('IS_DDEV_PROJECT') == 'true') {
                 'trustedHostsPattern' => '.*.*',
                 'devIPmask' => '*',
                 'displayErrors' => 1,
+//                'cookieDomain' => '.pwa-demo.ddev.site',
+//                'cookieSameSite' => 'None',
+//                'cookieSecure'=> 1,
+
             ],
         ]
     );

@@ -16,7 +16,11 @@ export default defineNuxtConfig({
     },
     api: {
       // baseUrl: process.env.API_BASE || 'https://api.t3pwa.com'
-      baseUrl: process.env.API_BASE || 'https://pwa-demo.ddev.site/headless'
+      baseUrl: process.env.API_BASE || 'https://pwa-demo.ddev.site/headless',
+      // baseUrl: process.env.API_BASE || 'https://api.pwa-demo.ddev.site'
+      proxyHeaders: ['set-cookie'],
+      proxyReqHeaders: ['referer'],
+
     }
   },
   formkit: {

@@ -28,8 +28,14 @@ function submitForm(formValues) {
         //
         // }
     }).then(data => {
-        window.location.reload()
+        // window.location.reload()
+
+
         console.log(data)
+        reloadNuxtApp({
+            force: true
+        });
+        // refreshCurrentPageData()
     }).catch(e => {
         console.log(e)
     })

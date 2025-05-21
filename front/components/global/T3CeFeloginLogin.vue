@@ -28,13 +28,13 @@ function submitForm(formValues, node){
     $fetch(`${form.value?.action}`, {
         method: 'POST',
         credentials: "include",
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formValues)
+        // headers: {
+        //     'Content-Type': 'application/x-www-form-urlencoded',
+        // },
+        body: new URLSearchParams(formValues),
         // body: getFormData(formValues),
         // headers: {
-        //     "X-CSRF-Token": "", // 👈👈👈 Set the token
+        //     "X-CSRF-Token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IntcInR5cGVcIjpcIm5vbmNlXCIsXCJuYW1lXCI6XCJ1QlBvekVYQkd5ZFBZTDFiME1sMWJRXCJ9In0.eyJzY29wZSI6ImNvcmUvdXNlci1hdXRoL2ZlIiwidGltZSI6IjIwMjUtMDUtMTlUMjI6MTc6MDErMDI6MDAiLCJwYXJhbXMiOnsicGlkIjoiNDQiLCJyZXF1ZXN0Ijp7InVyaSI6Ii9sb2dpbj90eF9mZWxvZ2luX2xvZ2luJTVCYWN0aW9uJTVEPWxvZ2luJmFtcDt0eF9mZWxvZ2luX2xvZ2luJTVCY29udHJvbGxlciU1RD1Mb2dpbiZhbXA7Y0hhc2g9YWQ0Y2VjZWU3NzNiNGFjYjMxMzRkZjgyNWY2M2ZlMzUifX19.WCvBZZq20h8VaklsyVB-z5Qfa93s5ah6pbUSkDxDv-E", // 👈👈👈 Set the token
         //
         // }
     }).then(data=>{
