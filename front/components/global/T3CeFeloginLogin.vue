@@ -39,6 +39,9 @@ function submitForm(formValues, node){
         // }
     }).then(data=>{
         console.log(data)
+        reloadNuxtApp({
+            force: true
+        });
     }).catch(e=>{
         console.log(e)
     })
@@ -60,8 +63,8 @@ function submitForm(formValues, node){
 </script>
 
 <template>
-   <h1>FE LOGIN PLACEHOLDER</h1>
-<!--    <div v-html="data"></div>-->
+   <h1>{{data.message.header}}</h1>
+    <h2>{{data.message.message}}</h2>
     <FormKit
         :action="`https://pwa-demo.ddev.site/headless${form.action}`"
         :method="form.method"
@@ -72,10 +75,10 @@ function submitForm(formValues, node){
     >
         <FormKit v-for="element of form.elements.filter(el=>el.type!=='submit')" :type="element.type" :value="element.value" :name="element.name" :label="element.label"></FormKit>
     </FormKit>
-  <h2>{{uid}}</h2>
-    <pre>
-    {{data}}
-    </pre>
+<!--  <h2>{{uid}}</h2>-->
+<!--    <pre>-->
+<!--    {{data}}-->
+<!--    </pre>-->
 </template>
 
 <style scoped>
