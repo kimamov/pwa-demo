@@ -15,22 +15,14 @@ function getFormData(object) {
 }
 
 function submitForm(formValues) {
-    $fetch(`https://pwa-demo.ddev.site/headless/example`, {
+    $fetch(`/crate-comment`, {
         method: 'POST',
         credentials: "include",
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams(formValues)
-        // body: getFormData(formValues),
-        // headers: {
-        //     "X-CSRF-Token": "", // 👈👈👈 Set the token
-        //
-        // }
     }).then(data => {
-        // window.location.reload()
-
-
         console.log(data)
         reloadNuxtApp({
             force: true
@@ -48,7 +40,6 @@ function submitForm(formValues) {
 
 <template>
     <FormKit
-        :action="`https://pwa-demo.ddev.site/headless/example`"
         method="POST"
         @submit="submitForm"
         type="form"
@@ -56,7 +47,6 @@ function submitForm(formValues) {
     >
         <FormKit type="text" label="Text" name="text"/>
         <FormKit type="text" label="Author" name="author"/>
-        <!--        <FormKit type="file" label="image" name="image"/>-->
     </FormKit>
 
     <h1>Comments:</h1>
