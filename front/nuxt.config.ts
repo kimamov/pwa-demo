@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   devtools: {enabled: true},
 
   modules: [
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     '@t3headless/nuxt-typo3',
     '@formkit/nuxt'
   ],
@@ -18,7 +20,7 @@ export default defineNuxtConfig({
       // baseUrl: process.env.API_BASE || 'https://api.t3pwa.com'
       baseUrl: process.env.API_BASE || 'https://pwa-demo.ddev.site/headless',
       // baseUrl: process.env.API_BASE || 'https://api.pwa-demo.ddev.site'
-      proxyHeaders: ['set-cookie'], // important to make auth work
+      proxyHeaders: ['set-cookie', 'fe_typo_user', 'cookie'], // important to make auth work
       proxyReqHeaders: ['referer', 'fe_typo_user', 'cookie', 'cookies'],
 
     }

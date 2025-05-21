@@ -19,7 +19,10 @@
   "dependencies": {
     "@formkit/nuxt": "^1.6.9",
     "@formkit/themes": "^1.6.9",
+    "@pinia/nuxt": "^0.11.0",
     "@t3headless/nuxt-typo3-ui": "^1.1.0",
-    "formkit": "^1.6.9"
+    "formkit": "^1.6.9",
+    "pinia": "^3.0.2",
+    "pinia-plugin-persistedstate": "^4.3.0"
   }
 }

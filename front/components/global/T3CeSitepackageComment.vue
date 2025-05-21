@@ -6,16 +6,12 @@ interface T3CePlugin extends T3CeBaseProps {
 }
 
 const props = withDefaults(defineProps<T3CePlugin>(), {})
-console.log({props})
 
-function getFormData(object) {
-    const formData = new FormData();
-    Object.keys(object).forEach(key => formData.append(key, object[key]));
-    return formData;
-}
+
+const {$fetch} = useT3Api();
 
 function submitForm(formValues) {
-    $fetch(`/crate-comment`, {
+    $fetch(`/create-comment`, {
         method: 'POST',
         credentials: "include",
         headers: {
@@ -31,9 +27,6 @@ function submitForm(formValues) {
     }).catch(e => {
         console.log(e)
     })
-
-    // const formData=new FormData(formValues);
-    // console.log(formData)
 
 }
 </script>
