@@ -1,5 +1,5 @@
 <template>
-    <NuxtLayout>
+    <NuxtLayout name="layout-with-login">
         <NuxtPage />
     </NuxtLayout>
 </template>

@@ -57,9 +57,18 @@ export const useAuthStore = defineStore('auth', {
       // Make a request to TYPO3's logout endpoint
       // This should invalidate the session cookie on the backend
       // useFetch('/api/typo3/logout', { method: 'POST' }); // Your logout endpoint
+      const {$fetch}=useT3Api();
 
-      this.loggedIn = false;
-      this.user = null;
+      $fetch('/login?logintype=logout',{
+        credentials: 'include'
+      }).then(res=>{
+        console.log(res)
+      }).catch(e=>{
+        console.log(e)
+      }).finally(()=>{
+        this.loggedIn = false;
+        this.user = null;
+      })
       // Optionally redirect to login or home page
       // useRouter().push('/login');
     },
