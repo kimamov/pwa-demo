@@ -4,7 +4,7 @@
     :class="headerClass"
     class="t3-ce-header prose"
   >
-      <h1>TEST</h1>
+      <h1>te</h1>
     <component
       :is="`h${headerLevel}`"
       v-if="headerLayout >= 0 && headerLayout !== 100"
