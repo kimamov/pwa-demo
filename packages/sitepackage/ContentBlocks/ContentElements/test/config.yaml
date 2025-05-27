@@ -7,3 +7,7 @@ fields:
   -
     identifier: header
     useExistingField: true
+  -
+    identifier: title
+    type: Text
+    max: 64
