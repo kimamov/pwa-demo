@@ -1,13 +1,30 @@
 // Example using Pinia (stores/auth.ts)
 import { defineStore } from 'pinia';
 
+interface User {
+  uid: number;
+  username: string;
+  email: string;
+  name: string;
+}
+
+interface UserResponse {
+  isLoggedIn: boolean;
+  user?: User;
+}
+
+interface LoginCredentials {
+  user: string;
+  pass: string;
+}
+
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     loggedIn: false,
-    user: null, // To store user data
+    user: null as User | null,
   }),
   actions: {
-    async login(credentials) {
+    async login(credentials: LoginCredentials) {
       try {
         // Perform login request to TYPO3 felogin endpoint
         // In a truly headless setup, felogin might redirect, or you might have a custom endpoint.
@@ -35,34 +52,38 @@ export const useAuthStore = defineStore('auth', {
       }
     },
     async fetchUser() {
-      // This endpoint should require authentication (uses the cookie)
-      const { data: userData, error } = await useFetch('/api/typo3/me'); // Your authenticated user endpoint
+      const { $fetch } = useT3Api();
 
-      if (userData.value) {
-        this.loggedIn = true;
-        this.user = userData.value;
-      } else {
-        this.loggedIn = false;
-        this.user = null;
-        if (error.value) {
-          console.warn('Not logged in or error fetching user:', error.value);
+      try {
+        const response = await $fetch<UserResponse>('/api/typo3/user', {
+          credentials: 'include'
+        });
+
+        if (response.isLoggedIn && response.user) {
+          this.loggedIn = true;
+          this.user = response.user;
+        } else {
+          this.logout();
         }
+      } catch (error) {
+        this.logout();
+
       }
     },
-    setUser(userData){
-      this.loggedIn=true;
-      this.user=userData;
+    setUser(userData: User) {
+      this.loggedIn = true;
+      this.user = userData;
     },
     logout() {
-      const {$fetch}=useT3Api();
+      const { $fetch } = useT3Api();
 
-      $fetch('/login?logintype=logout',{
+      $fetch('/login?logintype=logout', {
         credentials: 'include'
-      }).then(res=>{
+      }).then(res => {
         console.log(res)
-      }).catch(e=>{
+      }).catch(e => {
         console.log(e)
-      }).finally(()=>{
+      }).finally(() => {
         this.loggedIn = false;
         this.user = null;
         navigateTo('/'); // Redirect to home or login page after logout

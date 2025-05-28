@@ -1,6 +1,7 @@
 <?php
 
 use Skygate\Sitepackage\Controller\CommentController;
+use Skygate\Sitepackage\Controller\UserController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die('Access denied.');
@@ -16,7 +17,23 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.elementBodyResponse'] =
 ExtensionUtility::configurePlugin(
     extensionName: 'Sitepackage',
     pluginName: 'Comment',
-    controllerActions: [CommentController::class => 'list, add'],
+    controllerActions: [CommentController::class => 'list'],
     nonCacheableControllerActions: [CommentController::class => 'list'],
+    pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+);
+
+ExtensionUtility::configurePlugin(
+    extensionName: 'Sitepackage',
+    pluginName: 'CommentForm',
+    controllerActions: [CommentController::class => 'add'],
+    nonCacheableControllerActions: [CommentController::class => 'add'],
+    pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+);
+
+ExtensionUtility::configurePlugin(
+    extensionName: 'Sitepackage',
+    pluginName: 'User',
+    controllerActions: [UserController::class => 'getCurrentUser'],
+    nonCacheableControllerActions: [UserController::class => 'getCurrentUser'],
     pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );

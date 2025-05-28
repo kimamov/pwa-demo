@@ -19,3 +19,25 @@ tt_content.sitepackage_comment {
         }
     }
 }
+
+tt_content.sitepackage_commentform =< lib.contentElementWithHeader
+tt_content.sitepackage_commentform {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = CType
+                    sitepackage_commentform = USER
+                    sitepackage_commentform {
+                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                        vendorName = Skygate
+                        extensionName = Sitepackage
+                        pluginName = CommentForm
+                        controller = Comment
+                    }
+                }
+            }
+        }
+    }
+}

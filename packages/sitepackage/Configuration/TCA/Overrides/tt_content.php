@@ -9,3 +9,15 @@ ExtensionUtility::registerPlugin(
     pluginName: 'Comment',
     pluginTitle: 'Comment Example Plugin',
 );
+
+ExtensionUtility::registerPlugin(
+    extensionName: 'Sitepackage',
+    pluginName: 'CommentForm',
+    pluginTitle: 'Comment Form Plugin',
+);
+
+ExtensionUtility::registerPlugin(
+    extensionName: 'Sitepackage',
+    pluginName: 'User',
+    pluginTitle: 'Frontend User Data',
+);
