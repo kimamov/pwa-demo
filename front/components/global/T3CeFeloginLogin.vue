@@ -55,9 +55,7 @@ function submitForm(formValues, node) {
     >
         <FormKit v-for="element of form.elements" :label="element.label" :name="element.name" :type="element.type" :value="element.value"></FormKit>
     </FormKit>
-<!--        <pre>-->
-<!--        {{data}}-->
-<!--        </pre>-->
+  <h1>OAUTH GITHUB</h1>
 </template>
 
 <style scoped>
