@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type {T3CeBaseProps} from '@t3headless/nuxt-typo3';
 import {useAuthStore} from "~/stores/authStore";
+import type { FormKitNode } from '@formkit/core'
 
 interface T3CeImageWithDescription extends T3CeBaseProps {
     // bodytext: string,
@@ -21,7 +22,13 @@ const {$fetch} = useT3Api();
 
 const authStore=useAuthStore();
 
-function submitForm(formValues, node) {
+interface FormValues {
+    user: string;
+    pass: string;
+    [key: string]: string;
+}
+
+function submitForm(formValues: FormValues, node: FormKitNode) {
     console.log({formValues, node})
 
     $fetch(`${form.value?.action}`, {
@@ -30,7 +37,7 @@ function submitForm(formValues, node) {
         body: new URLSearchParams(formValues),
     }).then(data => {
         console.log(data)
-        authStore.setUser(data);
+        authStore.fetchUser();
 
         navigateTo('/login/you-are-logged-in');
     }).catch(e => {

@@ -3,7 +3,7 @@ import type {T3CeBaseProps} from '@t3headless/nuxt-typo3';
 import {useAuthStore} from "~/stores/authStore";
 
 interface T3CePlugin extends T3CeBaseProps {
-    data?: object
+    data?: any
 }
 
 const props = withDefaults(defineProps<T3CePlugin>(), {})
@@ -11,8 +11,14 @@ const props = withDefaults(defineProps<T3CePlugin>(), {})
 const {loggedIn, logout}=useAuthStore();
 
 const {$fetch} = useT3Api();
+interface FormValues {
+    text: string;
+    author: string;
+    [key: string]: string;
+}
 
-function submitForm(formValues, node) {
+
+function submitForm(formValues: FormValues, node: FormKitNode) {
     $fetch(`/create-comment`, {
         method: 'POST',
         credentials: "include",
