@@ -55,7 +55,7 @@ export const useAuthStore = defineStore('auth', {
       const { $fetch } = useT3Api();
 
       try {
-        const response = await $fetch<UserResponse>('/api/typo3/user', {
+        const response = await $fetch<UserResponse>('/login/get-user-data', {
           credentials: 'include'
         });
 
@@ -88,8 +88,6 @@ export const useAuthStore = defineStore('auth', {
         this.user = null;
         navigateTo('/'); // Redirect to home or login page after logout
       })
-      // Optionally redirect to login or home page
-      // useRouter().push('/login');
     },
   },
   persist: true
