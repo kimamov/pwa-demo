@@ -1,0 +1,21 @@
+tt_content.sitepackage_user =< lib.contentElementWithHeader
+tt_content.sitepackage_user {
+    fields {
+        content {
+            fields {
+                data = CASE
+                data {
+                    key.field = CType
+                    sitepackage_user = USER
+                    sitepackage_user {
+                        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+                        vendorName = Skygate
+                        extensionName = Sitepackage
+                        pluginName = User
+                        controller = User
+                    }
+                }
+            }
+        }
+    }
+} 
