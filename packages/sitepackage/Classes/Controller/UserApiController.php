@@ -5,31 +5,34 @@ declare(strict_types=1);
 namespace Skygate\Sitepackage\Controller;
 
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Http\JsonResponse;
-use TYPO3\CMS\Core\Http\ServerRequest;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 
-class UserApiController
+class UserApiController extends ActionController
 {
-    public function getAction(ServerRequest $request): ResponseInterface
+    public function getAction(): ResponseInterface
     {
         /** @var FrontendUserAuthentication $feUser */
-        $feUser = $request->getAttribute('frontend.user');
+        $feUser = $this->request->getAttribute('frontend.user');
         
         if (!$feUser instanceof FrontendUserAuthentication || !$feUser->user) {
-            return new JsonResponse([
-                'isLoggedIn' => false,
-            ]);
+            return $this->jsonResponse(
+                json_encode([
+                    'isLoggedIn' => false,
+                ])
+            );
         }
 
-        return new JsonResponse([
-            'isLoggedIn' => true,
-            'user' => [
-                'uid' => $feUser->user['uid'],
-                'username' => $feUser->user['username'],
-                'email' => $feUser->user['email'],
-                'name' => $feUser->user['name'],
-            ],
-        ]);
+        return $this->jsonResponse(
+            json_encode([
+                'isLoggedIn' => true,
+                'user' => [
+                    'uid' => $feUser->user['uid'],
+                    'username' => $feUser->user['username'],
+                    'email' => $feUser->user['email'],
+                    'name' => $feUser->user['name'],
+                ],
+            ])
+        );
     }
 } 

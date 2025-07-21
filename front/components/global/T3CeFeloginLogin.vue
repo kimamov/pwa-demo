@@ -37,7 +37,13 @@ function submitForm(formValues: FormValues, node: FormKitNode) {
         body: new URLSearchParams(formValues),
     }).then(data => {
         console.log(data)
-        authStore.fetchUser();
+        
+        authStore.setUser({
+            uid: 0,
+            username: "admin",
+            email: "admin@admin.de",
+            name: "admin"
+        });
 
         navigateTo('/login/you-are-logged-in');
     }).catch(e => {

@@ -1,5 +1,0 @@
-sitepackage_user-get:
-   path:         api/user/get
-   controller:   Skygate\Sitepackage\Controller\UserApiController::get
-   defaults:
-      plugin:    UserApi1

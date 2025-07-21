@@ -17,7 +17,7 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.elementBodyResponse'] =
 ExtensionUtility::configurePlugin(
     extensionName: 'Sitepackage',
     pluginName: 'Comment',
-    controllerActions: [CommentController::class => 'list'],
+    controllerActions: [CommentController::class => 'list, add'],
     nonCacheableControllerActions: [CommentController::class => 'list'],
     pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );
@@ -33,7 +33,7 @@ ExtensionUtility::configurePlugin(
 ExtensionUtility::configurePlugin(
     extensionName: 'Sitepackage',
     pluginName: 'User',
-    controllerActions: [UserApiController::class => 'getCurrentUser'],
-    nonCacheableControllerActions: [UserApiController::class => 'getCurrentUser'],
-    pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+    controllerActions: [UserApiController::class => 'get'],
+    nonCacheableControllerActions: [UserApiController::class => 'get'],
+    pluginType: ExtensionUtility::PLUGIN_TYPE_PLUGIN,
 );

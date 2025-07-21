@@ -61,5 +61,14 @@ languages:
     fallbacks: '0'
     enabled: true
 rootPageId: 43
-routeEnhancers: null
+routeEnhancers:
+  ApiRoutes:
+    type: Extbase
+    limitToPages: [43]
+    extension: Sitepackage
+    plugin: User
+    routes:
+      - routePath: '/api/user'
+        _controller: 'UserApi::get'
+        _arguments: {}
 websiteTitle: 'TYPO3 Headless & PWA Demo'
