@@ -36,9 +36,8 @@ page {
 #     }
 # }
 
-
-tt_content.skygate_test = JSON
-tt_content.skygate_test {
+# config to make content block render its content under the "content" field instead of "data"
+lib.contentBlockHeadlessConfig {
     fields {
         appearance =< lib.appearance
 
@@ -66,37 +65,17 @@ tt_content.skygate_test {
         }
     }
 }
+
+tt_content.skygate_test = JSON
+tt_content.skygate_test < lib.contentBlockHeadlessConfig
 
 
 tt_content.skygate_amirtest = JSON
-tt_content.skygate_amirtest {
-    fields {
-        appearance =< lib.appearance
+tt_content.skygate_amirtest < lib.contentBlockHeadlessConfig
 
-        colPos = INT
-        colPos {
-            field = colPos
-        }
+tt_content.skygate_media = JSON
+tt_content.skygate_media < lib.contentBlockHeadlessConfig
 
-        content = TEXT
-        content {
-            dataProcessing {
-                10 = nb-content-blocks-json
-                10.as = data
-            }
-        }
-
-        id = INT
-        id {
-            field = uid
-        }
-
-        type = TEXT
-        type {
-            field = CType
-        }
-    }
-}
 
 tt_content.skygate_expandable = JSON
 tt_content.skygate_expandable {
