@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import type { T3CeBaseProps } from '@t3headless/nuxt-typo3';
+import Image from "~/components/shared/Image.vue";
 
 interface T3CeImageWithDescription extends T3CeBaseProps {
     header?: string
-    images?: string
+    images?: {
+      publicUrl: string
+    }[]
 }
 const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
 })
@@ -12,6 +15,7 @@ const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
 <template>
     <h2>{{uid}}</h2>
   <h2>{{header}}</h2>
-  <img v-if="images" v-for="image of images" :src="image.publicUrl" alt="">
+
+  <Image v-if="images" v-for="image of images" :image="image"/>
 </template>
 
