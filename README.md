@@ -143,38 +143,28 @@ This file will be executed by the headless bridge extension when trying to rende
 
 By default, the data of the content block will be inside the json under the `data` key. 
 If you want to use the node module `@t3headless/nuxt-typo3` to render the content block, you will need to move the data to the `content` key.
-To do this, you need to add this to your `setup.typoscript` file at packages/EXT_KEY/Configuration/Sets/SitePackage/setup.typoscript
+To do this, you need to add this to your `setup.typoscript` file at packages/EXT_KEY/Configuration/Sets/SitePackage/setup.typoscript once.
 
-Example for a custom content block called `skygate_test`:
 
 ```typoscript
 
-tt_content.skygate_test = JSON
-tt_content.skygate_test {
+lib.contentBlock >
+lib.contentBlock < lib.contentElement
+lib.contentBlock {
     fields {
-        appearance =< lib.appearance
-
-        colPos = INT
-        colPos {
-            field = colPos
+        data = TEXT
+        data {
+            dataProcessing {
+                10 = nb-content-blocks-json
+                10.as = data
+            }
         }
-
         content = TEXT
         content {
             dataProcessing {
                 10 = nb-content-blocks-json
                 10.as = data
             }
-        }
-
-        id = INT
-        id {
-            field = uid
-        }
-
-        type = TEXT
-        type {
-            field = CType
         }
     }
 }
