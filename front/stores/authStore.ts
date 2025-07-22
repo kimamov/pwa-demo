@@ -41,8 +41,11 @@ export const useAuthStore = defineStore('auth', {
 
         if (loginError.value) throw loginError.value;
 
+        this.loggedIn = true;
+        this.user=true;
+
         // If login sets a cookie, now try to fetch user data
-        await this.fetchUser();
+        // await this.fetchUser();
 
       } catch (error) {
         this.loggedIn = false;
