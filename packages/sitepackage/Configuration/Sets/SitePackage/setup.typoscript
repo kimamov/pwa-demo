@@ -68,5 +68,34 @@ tt_content.skygate_test {
 }
 
 
+tt_content.skygate_amirtest = JSON
+tt_content.skygate_amirtest {
+    fields {
+        appearance =< lib.appearance
+
+        colPos = INT
+        colPos {
+            field = colPos
+        }
+
+        content = TEXT
+        content {
+            dataProcessing {
+                10 = nb-content-blocks-json
+                10.as = data
+            }
+        }
+
+        id = INT
+        id {
+            field = uid
+        }
+
+        type = TEXT
+        type {
+            field = CType
+        }
+    }
+}
 
 tt_content.typo3headless_hero =< lib.contentElementWithHeader
