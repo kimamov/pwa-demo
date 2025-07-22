@@ -73,6 +73,8 @@ tt_content.skygate_test < lib.contentBlockHeadlessConfig
 tt_content.skygate_amirtest = JSON
 tt_content.skygate_amirtest < lib.contentBlockHeadlessConfig
 
+tt_content.skygate_media = JSON
+tt_content.skygate_media < lib.contentBlockHeadlessConfig
 
 
 tt_content.typo3headless_hero =< lib.contentElementWithHeader
