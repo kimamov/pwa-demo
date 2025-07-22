@@ -3,7 +3,7 @@ import type { T3CeBaseProps } from '@t3headless/nuxt-typo3';
 
 interface T3CeImageWithDescription extends T3CeBaseProps {
     header?: string
-    image?: string
+    images?: string
 }
 const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
 })
@@ -12,6 +12,6 @@ const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
 <template>
     <h2>{{uid}}</h2>
   <h2>{{header}}</h2>
-  <img v-if="image" v-for="data of image" :src="data.publicUrl" alt="">
+  <img v-if="images" v-for="image of images" :src="image.publicUrl" alt="">
 </template>
 
