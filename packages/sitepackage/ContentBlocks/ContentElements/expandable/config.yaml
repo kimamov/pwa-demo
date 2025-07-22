@@ -28,8 +28,40 @@ fields:
   -
     identifier: image
     type: File
-    extendedPalette: false
+    extendedPalette: true
     minitems: 1
-    maxitems: 10
+    maxitems: 5
     allowed: common-image-types
+    cropVariants:
+      desktop:
+        title: Desktop
+        allowedAspectRatios:
+          portrait:
+            title: Portrait
+            value: 0.75
+          landscape:
+            title: Landscape
+            value: 4 / 3
+        focusArea:
+          x: 0.3
+          y: 0.3
+          width: 0.4
+          height: 0.4
+        coverAreas:
+          - x: 0.1
+            y: 0.8
+            width: 0.8
+            height: 0.1
+      tablet:
+        title: Tablet
+        allowedAspectRatios:
+          square:
+            title: Square
+            value: 0.75
+      smartphone:
+        title: Smartphone
+        allowedAspectRatios:
+          landscape:
+            title: Landscape
+            value: 4 / 3
 

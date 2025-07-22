@@ -17,9 +17,9 @@ console.log("Props A", {props})
 </script>
 
 <template>
-  <details class="expandable">
+  <details class="expandable" open>
     <summary class="expandable__summary">
-      <h3 class="headline headline--h3">{{ title }}</h3>
+      <h3 class="headline headline--h3 headline--white">{{ title }}</h3>
     </summary>
     <div class="expandable__panel" role="region">
       <div v-if="textarea" v-html="textarea"></div>
@@ -38,8 +38,8 @@ console.log("Props A", {props})
     display: flex;
     position: relative;
     width: 100%;
-    background: lightpink;
-    padding: 0 1rem;
+    background: darkslategrey;
+    padding: 0.25rem 1rem;
 
     &:before {
       content: "";
@@ -48,7 +48,7 @@ console.log("Props A", {props})
       height: 2rem;
       top: calc(50% - 1rem);
       right: 1rem;
-      background-color: #0e2f22;
+      background-color: #fff;
       -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik02IDkuODUxOTJMNy44MDMxNSA4TDEyIDEyLjMxMjRMMTYuMTk2OSA4TDE4IDkuODUxOTJMMTIgMTZDOS45Nzc5NSAxMy45NzM0IDcuOTk3MDUgMTEuOTAzOCA2IDkuODUxOTJaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4NCjwvc3ZnPg0K);
       mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik02IDkuODUxOTJMNy44MDMxNSA4TDEyIDEyLjMxMjRMMTYuMTk2OSA4TDE4IDkuODUxOTJMMTIgMTZDOS45Nzc5NSAxMy45NzM0IDcuOTk3MDUgMTEuOTAzOCA2IDkuODUxOTJaIiBmaWxsPSJjdXJyZW50Q29sb3IiLz4NCjwvc3ZnPg0K);
       -webkit-mask-repeat: no-repeat;
@@ -110,6 +110,10 @@ console.log("Props A", {props})
   font-stretch: normal;
   font-optical-sizing: auto;
   font-weight: normal;
+
+  &--white {
+    color: #ffffff;
+  }
 
   &--h1 {
     font-size: 3rem;
