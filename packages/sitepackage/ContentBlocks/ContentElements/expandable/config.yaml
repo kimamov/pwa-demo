@@ -1,0 +1,35 @@
+name: skygate/expandable
+typeName: skygate_expandable
+group: default
+prefixFields: true
+prefixType: full
+fields:
+  -
+    identifier: header
+    useExistingField: true
+
+  -
+    identifier: title
+    type: Text
+    required: true
+    min: 4
+    max: 15
+
+  -
+    identifier: textarea
+    type: Textarea
+    default: "Default value"
+    placeholder: "Placeholder text"
+    required: true
+    rows: 15
+    enableRichtext: true
+    #richtextConfiguration: full
+
+  -
+    identifier: image
+    type: File
+    extendedPalette: false
+    minitems: 1
+    maxitems: 10
+    allowed: common-image-types
+

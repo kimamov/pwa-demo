@@ -1,0 +1,21 @@
+name: skygate/amirtest
+typeName: skygate_amirtest
+group: default
+prefixFields: true
+prefixType: full
+fields:
+  -
+    identifier: header
+    useExistingField: true
+  -
+    identifier: title
+    type: Text
+    max: 64
+  -
+    identifier: name
+    type: Text
+    max: 64
+  -
+    identifier: lastname
+    type: Text
+    max: 64

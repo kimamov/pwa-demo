@@ -78,33 +78,6 @@ tt_content.skygate_media < lib.contentBlockHeadlessConfig
 
 
 tt_content.skygate_expandable = JSON
-tt_content.skygate_expandable {
-    fields {
-        appearance =< lib.appearance
-
-        colPos = INT
-        colPos {
-            field = colPos
-        }
-
-        content = TEXT
-        content {
-            dataProcessing {
-                10 = nb-content-blocks-json
-                10.as = data
-            }
-        }
-
-        id = INT
-        id {
-            field = uid
-        }
-
-        type = TEXT
-        type {
-            field = CType
-        }
-    }
-}
+tt_content.skygate_expandable < lib.contentBlockHeadlessConfig
 
 tt_content.typo3headless_hero =< lib.contentElementWithHeader
