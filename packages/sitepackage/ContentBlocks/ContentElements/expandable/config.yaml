@@ -25,6 +25,14 @@ fields:
     enableRichtext: true
     #richtextConfiguration: full
 
+  - identifier: toggle
+    type: Checkbox
+    renderType: checkboxLabeledToggle
+    items:
+      - label: 'Use second Image'
+        labelUnchecked: 'Second Image is used'
+        labelChecked: 'First Image is used'
+        invertStateDisplay: true
   -
     identifier: image
     type: File
