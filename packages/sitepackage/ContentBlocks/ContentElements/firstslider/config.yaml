@@ -1,0 +1,60 @@
+name: skygate/firstslider
+typeName: skygate_firstslider
+group: default
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    useExistingField: true
+
+  - identifier: title
+    type: Text
+    required: true
+    min: 4
+    max: 15
+
+  - identifier: slider
+    type: Collection
+    label: Slider
+    minitems: 1  # Minimum von einem Slide
+    maxitems: 10  # Maximale Anzahl von Slides
+    fields:
+      - identifier: slide_title
+        type: Text
+        label: Slide Titel
+        required: true
+        min: 4
+        max: 100
+
+      - identifier: slide_link
+        type: Link
+        label: Link zum Slide
+        required: true
+
+      - identifier: slide_image
+        type: File
+        label: Bild
+        allowed: common-image-types
+        minitems: 1
+        maxitems: 1
+        cropVariants:
+          desktop:
+            title: Desktop
+            allowedAspectRatios:
+              landscape:
+                title: Landscape
+                value: 16 / 9
+          tablet:
+            title: Tablet
+            allowedAspectRatios:
+              landscape:
+                title: Landscape
+                value: 4 / 3
+
+      - identifier: slide_description
+        type: Textarea
+        label: Beschreibung
+        default: "Default value"
+        placeholder: "Beschreibung für den Slide"
+        rows: 5
+        enableRichtext: true
