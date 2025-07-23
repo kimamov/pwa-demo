@@ -30,9 +30,9 @@ fields:
     renderType: checkboxLabeledToggle
     items:
       - label: 'Use second Image'
-        labelUnchecked: 'Second Image is used'
-        labelChecked: 'First Image is used'
-        invertStateDisplay: true
+        labelChecked: 'Second Image is used'
+        labelUnchecked: 'First Image is used'
+        invertStateDisplay: false
   -
     identifier: image
     type: File
