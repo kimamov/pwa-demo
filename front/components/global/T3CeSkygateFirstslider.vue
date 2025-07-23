@@ -1,29 +1,6 @@
 <script setup lang="ts">
 import type { T3CeBaseProps } from '@t3headless/nuxt-typo3';
 
-/*interface T3CeImageWithDescription extends T3CeBaseProps {
-  header?: string
-  title?: string;
-  slideLink: string;
-  slideImage: object;
-  slideDescription: string;
-  slides?: []
-}
-
-
-const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
-  // bodytext: ''
-})
-console.log("Props Slider", {props})*/
-
-/*interface Slide {
-  title: string;
-  slideLink: string;
-  slideImage: { publicUrl: string; title?: string }; // Das Bildobjekt
-  slideDescription: string;
-}*/
-
-// Dein Hauptinterface für das Content Element
 interface T3CeImageWithDescription extends T3CeBaseProps {
   header?: string;
   slider: {
@@ -49,15 +26,14 @@ console.log("Props Slider", {props});
 
 const slides = computed(() => {
   return props.slider.map((slide) => ({
-    slideTitle: slide.slide_title, // Umwandlung zu CamelCase
-    slideLink: slide.slide_link.attr.href, // Nur den `href` Wert verwenden
-    slideImage: slide.slide_image[0]?.publicUrl, // Nur das erste Bild verwenden
-    slideDescription: slide.slide_description, // Die Beschreibung behalten
+    slideTitle: slide.slide_title,
+    slideLink: slide.slide_link.attr.href,
+    slideImage: slide.slide_image[0]?.publicUrl,
+    slideDescription: slide.slide_description,
   }));
 });
 
 const cleanHtml = (html: string) => {
-  // Hier kannst du alle unerwünschten HTML-Tags entfernen oder sicherstellen, dass alles korrekt ist
   return html.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 };
 
