@@ -77,8 +77,8 @@ const modules = ref([Navigation, Pagination]);
             :modules="modules"
             class="mySwiper"
         >
-          <SwiperSlide class="amir" v-for="(slide, index) in slides" :key="index">
-            <div class="slide-card">
+          <SwiperSlide class="" v-for="(slide, index) in slides" :key="index">
+            <div class="slide-card mx-auto">
               <h3>{{ slide.slideTitle }}</h3>
               <p v-html="slide.slideDescription"></p>
               <a :href="slide.slideLink">Mehr erfahren</a>
