@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 
 interface T3CeImageWithDescription extends T3CeBaseProps {
   header?: string;
+  isSlider?: boolean;
   slider: {
     slide_title: string;
     slide_link: {
@@ -50,7 +51,7 @@ const modules = ref([Navigation, Pagination]);
   <h2>{{ header }}</h2>
   <section class="section">
     <div class="container">
-      <div class="slider-container">
+      <div v-if="isSlider" class="slider-container">
         <Swiper
             :cssMode="true"
             :slidesPerView="1"
@@ -86,18 +87,16 @@ const modules = ref([Navigation, Pagination]);
           </SwiperSlide>
         </Swiper>
       </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div v-if="slides" class="slider-overview">
-        <div v-for="(slide, index) in slides" :key="index" class="slide-card">
-          <div v-if="slide.slideImage" class="slide-image">
-            <img :src="slide.slideImage" :alt="slide.slideTitle" />
+      <div v-else class="card-container">
+        <div v-if="slides" class="slider-overview">
+          <div v-for="(slide, index) in slides" :key="index" class="slide-card">
+            <div v-if="slide.slideImage" class="slide-image">
+              <img :src="slide.slideImage" :alt="slide.slideTitle" />
+            </div>
+            <h3 class="slide-title">{{ slide.slideTitle }}</h3>
+            <div class="slide-description" v-html="cleanHtml(slide.slideDescription)"></div>
+            <a :href="slide.slideLink" class="slide-link">Mehr erfahren</a>
           </div>
-          <h3 class="slide-title">{{ slide.slideTitle }}</h3>
-          <div class="slide-description" v-html="cleanHtml(slide.slideDescription)"></div>
-          <a :href="slide.slideLink" class="slide-link">Mehr erfahren</a>
         </div>
       </div>
     </div>

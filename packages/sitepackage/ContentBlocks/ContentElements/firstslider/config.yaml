@@ -13,6 +13,11 @@ fields:
     min: 4
     max: 15
 
+  - identifier: isSlider
+    type: Checkbox
+    renderType: checkboxToggle
+    default: 1
+
   - identifier: slider
     type: Collection
     label: Slider
