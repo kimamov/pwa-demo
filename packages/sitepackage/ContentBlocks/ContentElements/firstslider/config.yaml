@@ -16,7 +16,7 @@ fields:
   - identifier: isSlider
     type: Checkbox
     renderType: checkboxToggle
-    default: 1
+    default: true
 
   - identifier: slider
     type: Collection

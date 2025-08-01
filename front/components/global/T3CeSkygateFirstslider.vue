@@ -9,7 +9,10 @@ import 'swiper/css/navigation';
 
 interface T3CeImageWithDescription extends T3CeBaseProps {
   header?: string;
-  isSlider?: boolean;
+  isSlider?: {
+    type: Boolean,
+    default: false
+  }
   slider: {
     slide_title: string;
     slide_link: {
@@ -29,7 +32,8 @@ const cleanHtml = (html: string) => {
 };
 
 const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
-  slider: []
+  slider: [],
+  isSlider: false
 });
 
 console.log("Props Slider", {props});
@@ -77,13 +81,13 @@ const modules = ref([Navigation, Pagination]);
             :modules="modules"
             class="mySwiper"
         >
-          <SwiperSlide class="" v-for="(slide, index) in slides" :key="index">
-            <div class="slide-card mx-auto">
-              <h3>{{ slide.slideTitle }}</h3>
-              <p v-html="slide.slideDescription"></p>
-              <a :href="slide.slideLink">Mehr erfahren</a>
+          <SwiperSlide class="slide-card mx-auto" v-for="(slide, index) in slides" :key="index">
+            <div v-if="slide.slideImage" class="slide-image">
               <img :src="slide.slideImage" :alt="slide.slideTitle" />
             </div>
+            <h3 class="slide-title">{{ slide.slideTitle }}</h3>
+            <div class="slide-description" v-html="cleanHtml(slide.slideDescription)"></div>
+            <a :href="slide.slideLink" class="slide-link">Mehr erfahren</a>
           </SwiperSlide>
         </Swiper>
       </div>
@@ -104,9 +108,7 @@ const modules = ref([Navigation, Pagination]);
 </template>
 
 <style scoped lang="scss">
-.section {
-  padding: 32px 0;
-}
+
 .slider-overview {
   display: flex;
   flex-wrap: wrap;
@@ -127,7 +129,7 @@ const modules = ref([Navigation, Pagination]);
   margin-bottom: auto;
 
   &:hover {
-    transform: scale(1.05);
+    background: #f2f2f2;
   }
 
   .slide-title {
@@ -163,45 +165,5 @@ const modules = ref([Navigation, Pagination]);
       border-radius: 8px;
     }
   }
-}
-
-.headline {
-  color: inherit;
-  line-height: 150%;
-  margin-bottom: 1.125rem;
-  margin-top: 0;
-  font-style: normal;
-  font-stretch: normal;
-  font-optical-sizing: auto;
-  font-weight: normal;
-
-  &--white {
-    color: #ffffff;
-  }
-
-  &--h1 {
-    font-size: 3rem;
-  }
-  &--h2 {
-    font-size: 2.5rem;
-  }
-  &--h3 {
-    font-size: 2rem;
-  }
-  &--h4 {
-    font-size: 1.25rem;
-  }
-}
-h1 {
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2.5rem;
-}
-h3 {
-  font-size: 2rem;
-}
-h4 {
-  font-size: 1.25rem;
 }
 </style>
