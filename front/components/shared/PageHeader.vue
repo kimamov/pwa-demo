@@ -10,7 +10,7 @@
             <nav class="main-menu md:ml-auto">
 
               <ul v-if="navigation && navigation.length > 0"
-                  class="main-menu__list flex flex-wrap items-center justify-center text-base"
+                  class="main-menu__list main-menu__list--first-level flex flex-wrap items-center justify-center text-base"
               >
                 <li v-for="{ title, link, children } in navigation"
                     :key="link"
@@ -18,16 +18,16 @@
                 >
                   <NuxtLink
                       :to="link"
-                      class="main-menu__list mr-5 hover:text-gray-900"
+                      class="main-menu__list-item mr-5 hover:text-gray-900"
                   >
                     {{ title }}
                   </NuxtLink>
 
                   <ul v-if="children && children.length > 0"
-                      class="absolute hidden group-hover:block bg-white shadow-md py-2 px-4 rounded z-10"
+                      class="main-menu__list main-menu__list--second-level absolute hidden group-hover:block bg-white shadow-md py-2 px-4 rounded z-10"
                   >
                     <li v-for="child in children"
-                        :key="child.link" class="pb-2 border-b-1"
+                        :key="child.link" class="main-menu__list-item pb-2 border-b-1"
                     >
                       <NuxtLink
                           :to="child.link"
@@ -49,6 +49,10 @@
 
             </div>
         </div>
+        <div class="container mx-auto text-decoration-underline">
+            <h1 v-if="title">{{ title }}</h1>
+            <h1 v-else>Page has no Title</h1>
+        </div>
     </header>
 </template>
 
@@ -56,6 +60,7 @@
 import {useAuthStore} from "~/stores/authStore";
 
 defineProps<{
+  title?: string,
   navigation: Array<{
     title: string;
     link: string;
