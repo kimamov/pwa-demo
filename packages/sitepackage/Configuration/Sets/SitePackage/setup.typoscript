@@ -36,17 +36,20 @@ page {
 #     }
 # }
 
+# config to make content block render its content under the "content" field instead of "data"
 
-tt_content.skygate_test = JSON
-tt_content.skygate_test {
+# EXT:headless + EXT:content_blocks (NB Solution)
+lib.contentBlock >
+lib.contentBlock < lib.contentElement
+lib.contentBlock {
     fields {
-        appearance =< lib.appearance
-
-        colPos = INT
-        colPos {
-            field = colPos
+        data = TEXT
+        data {
+            dataProcessing {
+                10 = nb-content-blocks-json
+                10.as = data
+            }
         }
-
         content = TEXT
         content {
             dataProcessing {
@@ -54,19 +57,51 @@ tt_content.skygate_test {
                 10.as = data
             }
         }
-
-        id = INT
-        id {
-            field = uid
-        }
-
-        type = TEXT
-        type {
-            field = CType
-        }
     }
 }
 
 
+#lib.contentBlockHeadlessConfig {
+#    fields {
+#        appearance =< lib.appearance
+#
+#        colPos = INT
+#        colPos {
+#            field = colPos
+#        }
+#
+#        content = TEXT
+#        content {
+#            dataProcessing {
+#                10 = nb-content-blocks-json
+#                10.as = data
+#            }
+#        }
+#
+#        id = INT
+#        id {
+#            field = uid
+#        }
+#
+#        type = TEXT
+#        type {
+#            field = CType
+#        }
+#    }
+#}
+#
+#tt_content.skygate_test = JSON
+#tt_content.skygate_test < lib.contentBlockHeadlessConfig
+#
+#
+#tt_content.skygate_amirtest = JSON
+#tt_content.skygate_amirtest < lib.contentBlockHeadlessConfig
+#
+#tt_content.skygate_media = JSON
+#tt_content.skygate_media < lib.contentBlockHeadlessConfig
+#
+#
+#tt_content.skygate_expandable = JSON
+#tt_content.skygate_expandable < lib.contentBlockHeadlessConfig
 
 tt_content.typo3headless_hero =< lib.contentElementWithHeader

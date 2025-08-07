@@ -1,6 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {resolve} from "path";
+
 export default defineNuxtConfig({
   devtools: {enabled: true},
+  // use to import component automatically
+  components: true,
+  // use @ as root
+  alias: {
+    "@":resolve(__dirname, "/")
+  },
+
+  // use globally scss
+  css: [
+      "~/assets/main.scss"
+  ],
+
+  // Recommended from Tailwind Doc
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      tailwindcss: {}
+    }
+  },
 
   modules: [
     '@pinia/nuxt',

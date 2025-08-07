@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file datatype="plaintext" original="labels.xlf" source-language="en" date="2025-07-21T09:46:22+00:00" product-name="skygate/amirtest">
+		<header/>
+		<body>
+			<trans-unit id="title">
+				<source>Amir Test</source>
+			</trans-unit>
+			<trans-unit id="description">
+				<source>Description for Content Element skygate/amirtest</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
