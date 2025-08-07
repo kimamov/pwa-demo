@@ -8,8 +8,17 @@ interface T3CeImageWithDescription extends T3CeBaseProps {
   title?: string
   textarea?: string
   image?: object
+  toggle?: number
 
 }
+
+const currentImage = computed(() => {
+  if (props.toggle === 1 && props.image[1]?.publicUrl) {
+    return props.image[1]
+  }
+  return props.image[0]
+})
+
 const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
     // bodytext: ''
 })
@@ -23,8 +32,8 @@ console.log("Props A", {props})
     </summary>
     <div class="expandable__panel" role="region">
       <div v-if="textarea" v-html="textarea"></div>
-      <div v-if="image?.[0]?.publicUrl">
-        <img :src="image[0].publicUrl" :alt="image[0]?.title" />
+      <div v-if="currentImage?.publicUrl">
+        <img :src="currentImage.publicUrl" :alt="currentImage.title || 'Bild'" />
       </div>
     </div>
   </details>

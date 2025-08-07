@@ -24,6 +24,7 @@
     "@t3headless/nuxt-typo3-ui": "^1.1.0",
     "formkit": "^1.6.9",
     "pinia": "^3.0.2",
-    "pinia-plugin-persistedstate": "^4.3.0"
+    "pinia-plugin-persistedstate": "^4.3.0",
+    "swiper": "^11.2.10"
   }
 }
