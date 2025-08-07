@@ -136,6 +136,7 @@ ddev typo3 make:content-block
 ```
 
 This will invoke a dialog guiding through the content block creation.
+Check out the official content blocks documentation for more information on how to create content blocks: https://docs.typo3.org/p/friendsoftypo3/content-blocks/main/en-us/Commands/Make/Index.html
 
 Afterward, delete the `frontend.html` template from the content element directory.
 Then, create a file called `headless.php` in the content element directory.
@@ -183,11 +184,11 @@ here is an example of a Vue component for a content block called `skygate_test`:
 <script setup lang="ts">
   import type { T3CeBaseProps } from '@t3headless/nuxt-typo3';
 
-  interface T3CeImageWithDescription extends T3CeBaseProps {
+  interface T3CeWithHeaderAndTitle extends T3CeBaseProps {
     header?: string
     title?: string
   }
-  const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
+  const props = withDefaults(defineProps<T3CeWithHeaderAndTitle>(), {
     header: 'header fallback',
     title: 'title fallback'
   })
