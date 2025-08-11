@@ -17,46 +17,19 @@ const props = withDefaults(defineProps<T3CePlugin>(), {})
 </script>
 
 <template>
-    <div class="user-data">
-        <div v-if="data?.isLoggedIn && data?.user" class="user-info">
-            <h2>Welcome, {{ data.user.name }}</h2>
-            <div class="user-details">
-                <p><strong>Username:</strong> {{ data.user.username }}</p>
-                <p><strong>Email:</strong> {{ data.user.email }}</p>
+    <div class="max-w-xl mx-auto my-8 rounded-lg bg-white p-6 shadow-sm border border-slate-200">
+        <div v-if="data?.isLoggedIn && data?.user" class="">
+            <h2 class="text-xl font-semibold text-slate-800">Welcome, {{ data.user.name }}</h2>
+            <div class="mt-3 space-y-1 text-slate-700">
+                <p><span class="font-medium text-slate-600">Username:</span> {{ data.user.username }}</p>
+                <p><span class="font-medium text-slate-600">Email:</span> {{ data.user.email }}</p>
             </div>
         </div>
-        <div v-else class="not-logged-in">
+        <div v-else class="text-center text-slate-600">
             <p>Please log in to view your user information.</p>
         </div>
     </div>
 </template>
 
 <style scoped>
-.user-data {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-.user-info h2 {
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.user-details {
-    margin-top: 1rem;
-}
-
-.user-details p {
-    margin: 0.5rem 0;
-    color: #666;
-}
-
-.not-logged-in {
-    text-align: center;
-    color: #666;
-}
 </style> 

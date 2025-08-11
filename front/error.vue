@@ -10,14 +10,14 @@
       </div>
 
       <h1 class="text-5xl sm:text-7xl font-bold text-sky-500 mb-3">
-        {{ error.statusCode }}
+        {{ error?.statusCode }}
       </h1>
 
       <p class="text-xl sm:text-2xl text-slate-700 mb-2 font-semibold">
         {{ friendlyErrorMessage }}
       </p>
-      <p v-if="error.message && error.message !== friendlyErrorMessage" class="text-sm text-slate-500 mb-8">
-        ({{ error.message }})
+      <p v-if="error?.message && error.message !== friendlyErrorMessage" class="text-sm text-slate-500 mb-8">
+        ({{ error?.message }})
       </p>
       <p v-else class="mb-8"></p> <div class="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
       <button
@@ -62,7 +62,7 @@ const props = defineProps({
 
 // Provides a more user-friendly message for common errors
 const friendlyErrorMessage = computed(() => {
-  switch (props.error.statusCode) {
+  switch (props.error?.statusCode) {
     case 404:
       return "Oops! Page Not Found";
     case 500:

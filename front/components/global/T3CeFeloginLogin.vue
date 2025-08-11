@@ -69,9 +69,9 @@ function submitForm(formValues: FormValues, node: FormKitNode) {
 </script>
 
 <template>
-    <h1 class="text-xl font-bold mb-2">{{ data.message.header }}</h1>
-    <h2>{{ data.message.message }}</h2>
-    <h3>{{form.title}}</h3>
+    <h1 class="text-2xl font-semibold text-slate-800 mb-1">{{ data.message.header }}</h1>
+    <p class="text-slate-600 mb-4">{{ data.message.message }}</p>
+    <h3 class="text-lg font-medium text-slate-700 mb-2">{{form.title}}</h3>
     <FormKit
         v-if="form && form.elements?.length"
         :actions="false"
@@ -79,9 +79,9 @@ function submitForm(formValues: FormValues, node: FormKitNode) {
         type="form"
         @submit="submitForm"
     >
-        <FormKit v-for="element of form.elements" :label="element.label" :name="element.name" :type="element.type" :value="element.value"></FormKit>
+        <FormKit v-for="element of form.elements" :label="element.label" :name="element.name" :type="element.type" :value="element.value" class="mb-3"></FormKit>
     </FormKit>
-  <h1>OAUTH GITHUB</h1>
+  <h1 class="mt-6 text-sm uppercase tracking-wide text-slate-500">OAUTH GITHUB</h1>
 </template>
 
 <style scoped>

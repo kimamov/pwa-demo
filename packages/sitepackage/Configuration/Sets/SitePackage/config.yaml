@@ -5,3 +5,4 @@ dependencies:
 #  - typo3/felogin
   - friendsoftypo3/headless
   - nb-headless-content-blocks/headless-content-blocks
+  # - b13/container

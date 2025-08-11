@@ -15,11 +15,11 @@ export default defineNuxtConfig({
       "~/assets/main.scss"
   ],
 
-  // Recommended from Tailwind Doc
+  // Tailwind/PostCSS
   postcss: {
     plugins: {
+      tailwindcss: {},
       autoprefixer: {},
-      tailwindcss: {}
     }
   },
 

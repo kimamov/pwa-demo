@@ -26,8 +26,11 @@
 	],
 	"require": {
 		"php": "^8.3",
+		"b13/container": "^3.1",
+		"fanor51/headless-container-support": "^3.2",
 		"friendsoftypo3/content-blocks": "^1.1",
 		"friendsoftypo3/headless": "^4.6",
+		"itplusx/headless-container": "^3.0",
 		"netzbewegung/nb-headless-content-blocks": "^0.0.13",
 		"skygate/sitepackage": "dev-master",
 		"typo3/cms-adminpanel": "^13.4",

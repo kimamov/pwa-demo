@@ -15,7 +15,7 @@ const authStore=useAuthStore();
 </script>
 
 <template>
-    <div class="page" :class="{'page--is-logged-in': authStore.loggedIn}">
+    <div class="page min-h-screen bg-slate-50 text-slate-800 flex flex-col" :class="{'page--is-logged-in': authStore.loggedIn}">
         <PageHeader
             v-if="navigation"
             :navigation="navigation"
@@ -23,8 +23,8 @@ const authStore=useAuthStore();
         />
         <slot />
 
-        <footer>
-            <h2>footer placeholder login</h2>
+        <footer class="mt-12 border-t bg-white py-8 text-center text-sm text-slate-500">
+            <h2 class="text-base font-medium text-slate-700">footer placeholder login</h2>
         </footer>
     </div>
 </template>

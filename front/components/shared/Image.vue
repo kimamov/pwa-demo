@@ -7,19 +7,11 @@ const props=defineProps<{
 </script>
 
 <template>
-<div class="img-wrapper">
-  <img :src="image.publicUrl" alt="">
+<div class="overflow-hidden rounded-lg border border-slate-200 shadow-sm bg-white">
+  <img :src="image.publicUrl" alt="" class="block w-full object-cover">
+  
 </div>
 </template>
 
 <style scoped>
- .img-wrapper{
-   overflow: hidden;
-   border: 2px solid grey;
-   border-radius: 4px;
- }
- img{
-   display: block;
-   width: 100%;
- }
 </style>

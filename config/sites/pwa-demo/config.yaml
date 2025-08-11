@@ -9,6 +9,7 @@ baseVariants:
 dependencies:
   - skygate/sitepackage
   - friendsoftypo3/headless
+  - itplusx/headless-container
   - nb-headless-content-blocks/headless-content-blocks
 errorHandling:
   -
@@ -61,23 +62,4 @@ languages:
     fallbacks: '0'
     enabled: true
 rootPageId: 43
-# routeEnhancers:
-#   ApiRoutes:
-#     type: Extbase
-#     limitToPages: [43]
-#     extension: Sitepackage
-#     plugin: User
-#     routes:
-#       - routePath: '/api/user'
-#         _controller: 'UserApi::get'
-#         _arguments: {}
-#   CommentRoutes:
-#     type: Extbase
-#     limitToPages: [43]
-#     extension: Sitepackage
-#     plugin: CommentForm
-#     routes:
-#       - routePath: '/create-comment'
-#         _controller: 'Comment::add'
-#         _arguments: {}
 websiteTitle: 'TYPO3 Headless & PWA Demo'
