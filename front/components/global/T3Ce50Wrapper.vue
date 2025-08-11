@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import type { T3CeBaseProps } from '@t3headless/nuxt-typo3';
-import { elements } from '../../../public/_assets/37ee5ba7a97ad859ac99cb8181e0c0e3/JavaScript/Contrib/chartjs';
-// import type T3ContentElement from '@t3headless/nuxt-typo3/runtime/components/T3ContentElement.vue';
 
 interface T3Ce2ColContainer extends T3CeBaseProps {
     // bodytext: string,
