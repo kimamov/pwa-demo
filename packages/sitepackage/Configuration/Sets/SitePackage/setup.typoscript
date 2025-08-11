@@ -22,19 +22,6 @@ page {
     }
 }
 
-# from nb-headless-content-blocks
-# lib.contentBlockHeadless =< lib.contentElement
-# lib.contentBlockHeadless {
-#     fields {
-#         data = TEXT
-#         data {
-#             dataProcessing {
-#                 10 = nb-content-blocks-json
-#                 10.as = data
-#             }
-#         }
-#     }
-# }
 
 # config to make content block render its content under the "content" field instead of "data"
 
@@ -61,47 +48,5 @@ lib.contentBlock {
 }
 
 
-#lib.contentBlockHeadlessConfig {
-#    fields {
-#        appearance =< lib.appearance
-#
-#        colPos = INT
-#        colPos {
-#            field = colPos
-#        }
-#
-#        content = TEXT
-#        content {
-#            dataProcessing {
-#                10 = nb-content-blocks-json
-#                10.as = data
-#            }
-#        }
-#
-#        id = INT
-#        id {
-#            field = uid
-#        }
-#
-#        type = TEXT
-#        type {
-#            field = CType
-#        }
-#    }
-#}
-#
-#tt_content.skygate_test = JSON
-#tt_content.skygate_test < lib.contentBlockHeadlessConfig
-#
-#
-#tt_content.skygate_amirtest = JSON
-#tt_content.skygate_amirtest < lib.contentBlockHeadlessConfig
-#
-#tt_content.skygate_media = JSON
-#tt_content.skygate_media < lib.contentBlockHeadlessConfig
-#
-#
-#tt_content.skygate_expandable = JSON
-#tt_content.skygate_expandable < lib.contentBlockHeadlessConfig
 
-tt_content.typo3headless_hero =< lib.contentElementWithHeader
+

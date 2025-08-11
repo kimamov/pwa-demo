@@ -1,11 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2025-05-05UTC17:48:480">
-        <header>
-            <authorName>Kantemir Imamov</authorName>
-            <authorEmail>imamov@skygate.de</authorEmail>
-        </header>
-        <body>
-        </body>
-    </file>
+  <file source-language="en" datatype="plaintext" original="messages" product-name="sitepackage">
+    <header/>
+    <body>
+      <trans-unit id="tx_sitepackage_domain_model_post">
+        <source>Post</source>
+      </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_post.title">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_post.content">
+        <source>Content</source>
+      </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_post.image">
+        <source>Image</source>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>

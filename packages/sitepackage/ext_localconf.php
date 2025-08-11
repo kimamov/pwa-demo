@@ -1,8 +1,8 @@
 <?php
+use \TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+// use Skygate\Sitepackage\Controller\DemoApiController;
+use Skygate\Sitepackage\Controller\PostController;
 
-use Skygate\Sitepackage\Controller\CommentController;
-use Skygate\Sitepackage\Controller\UserApiController;
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die('Access denied.');
 
@@ -14,26 +14,14 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit'] = 0;
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['headless.elementBodyResponse'] = true;
 
-ExtensionUtility::configurePlugin(
-    extensionName: 'Sitepackage',
-    pluginName: 'Comment',
-    controllerActions: [CommentController::class => 'list, add'],
-    nonCacheableControllerActions: [CommentController::class => 'list'],
-    pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
-);
+
 
 ExtensionUtility::configurePlugin(
     extensionName: 'Sitepackage',
-    pluginName: 'CommentForm',
-    controllerActions: [CommentController::class => 'add'],
-    nonCacheableControllerActions: [CommentController::class => 'add'],
-    pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+    pluginName: 'Post',
+    controllerActions: [PostController::class => 'list'],
+    nonCacheableControllerActions: [PostController::class => 'list'],
+    // pluginType: ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+    // pluginType: ExtensionUtility::PLUGIN_TYPE_PLUGIN,
 );
 
-ExtensionUtility::configurePlugin(
-    extensionName: 'Sitepackage',
-    pluginName: 'User',
-    controllerActions: [UserApiController::class => 'get'],
-    nonCacheableControllerActions: [UserApiController::class => 'get'],
-    pluginType: ExtensionUtility::PLUGIN_TYPE_PLUGIN,
-);

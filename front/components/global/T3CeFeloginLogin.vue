@@ -46,9 +46,19 @@ function submitForm(formValues: FormValues, node: FormKitNode) {
         });
         // authStore.fetchUser();
 
-        nextTick(()=>{
-          navigateTo('/login/you-are-logged-in');
-        })
+        // setTimeout(()=>{
+        //     fetch('https://pwa-demo.ddev.site/headless/user/', {
+        //         method: 'POST',
+        //         body: JSON.stringify({
+        //             responseElementId: "404"
+
+        //     })
+        // }).then(res=> res.json()).then(data=> console.log(data)).catch(e=> console.log(e))
+        // }, 2000)
+
+        // nextTick(()=>{
+        //   navigateTo('/login/you-are-logged-in');
+        // })
     }).catch(e => {
         console.log(e)
         authStore.logout();

@@ -4,20 +4,27 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') or die();
 
+// Register list_type for Posts plugin
 ExtensionUtility::registerPlugin(
-    extensionName: 'Sitepackage',
-    pluginName: 'Comment',
-    pluginTitle: 'Comment Example Plugin',
+    'Sitepackage',
+    'Post',
+    'Post (headless)'
 );
 
-ExtensionUtility::registerPlugin(
-    extensionName: 'Sitepackage',
-    pluginName: 'CommentForm',
-    pluginTitle: 'Comment Form Plugin',
-);
+// ExtensionUtility::registerPlugin(
+//     extensionName: 'Sitepackage',
+//     pluginName: 'Comment',
+//     pluginTitle: 'Comment Example Plugin',
+// );
 
-ExtensionUtility::registerPlugin(
-    extensionName: 'Sitepackage',
-    pluginName: 'User',
-    pluginTitle: 'Frontend User Data',
-);
+// ExtensionUtility::registerPlugin(
+//     extensionName: 'Sitepackage',
+//     pluginName: 'CommentForm',
+//     pluginTitle: 'Comment Form Plugin',
+// );
+
+// ExtensionUtility::registerPlugin(
+//     extensionName: 'Sitepackage',
+//     pluginName: 'User',
+//     pluginTitle: 'Frontend User Data',
+// );

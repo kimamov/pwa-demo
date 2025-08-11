@@ -79,5 +79,8 @@
 		"typo3/minimal": {
 			"web-dir": "public"
 		}
+	},
+	"require-dev": {
+		"b13/make": "^0.1.8"
 	}
 }
