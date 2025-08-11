@@ -86,7 +86,7 @@ function submitForm(formValues: FormValues, node: FormKitNode) {
     </FormKit>
 
     <h1>Comments:</h1>
-    <div v-for="comment in data.comments" class="mb-4 p-4 border border-gray-200 rounded-lg">
+    <div v-if="data?.comments" v-for="comment in data.comments" class="mb-4 p-4 border border-gray-200 rounded-lg">
         <div class="mb-2">
             <strong>"{{ comment.text }}"</strong> - <i>{{ comment.author }}</i>
         </div>

@@ -6,14 +6,13 @@ tt_content.list {
         data = CASE
         data {
           key.field = list_type
-          sitepackage_post = USER
-          sitepackage_post {
+          sitepackage_students = USER
+          sitepackage_students {
             userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
             vendorName = Skygate
             extensionName = Sitepackage
-            pluginName = Post
-            controller = Post
-          
+            pluginName = Students
+            controller = Student
           }
         }
       }

@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-typo3-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@t3headless/nuxt-typo3": "^2.0.0",
+    "nuxt": "^3",
+    "sass-embedded": "^1.89.2",
+    "typescript": "^5.8.3",
+    "vue": "^3.3.8",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@formkit/nuxt": "^1.6.9",
+    "@formkit/themes": "^1.6.9",
+    "@pinia/nuxt": "^0.11.0",
+    "@t3headless/nuxt-typo3-ui": "^1.1.0",
+    "formkit": "^1.6.9",
+    "pinia": "^3.0.2",
+    "pinia-plugin-persistedstate": "^4.3.0",
+    "swiper": "^11.2.10"
+  }
+}

@@ -15,6 +15,18 @@
       <trans-unit id="tx_sitepackage_domain_model_post.image">
         <source>Image</source>
       </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_student">
+        <source>Student</source>
+      </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_student.name">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_student.lastname">
+        <source>Last name</source>
+      </trans-unit>
+      <trans-unit id="tx_sitepackage_domain_model_student.image">
+        <source>Image</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

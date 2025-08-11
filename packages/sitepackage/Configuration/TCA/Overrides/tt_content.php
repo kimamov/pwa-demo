@@ -11,6 +11,12 @@ ExtensionUtility::registerPlugin(
     'Post (headless)'
 );
 
+ExtensionUtility::registerPlugin(
+    'Sitepackage',
+    'Students',
+    'Students (headless)'
+);
+
 // ExtensionUtility::registerPlugin(
 //     extensionName: 'Sitepackage',
 //     pluginName: 'Comment',

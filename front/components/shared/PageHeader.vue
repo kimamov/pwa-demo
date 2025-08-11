@@ -5,7 +5,7 @@
                 to="/"
                 class="mb-4 flex items-center font-medium text-gray-900 md:mb-0"
             >
-                <TheLogo />
+                LOGO
             </NuxtLink>
             <nav class="main-menu md:ml-auto">
 
@@ -40,7 +40,6 @@
                 </li>
               </ul>
             </nav>
-            <T3LocaleSwitcher/>
             <div v-if="userData" class="user-avatar m-4 p-1 border-2">
                 USER (logged in)
                 <button class="bg-green-200 p-2 rounded" @click="authStore.logout()">
