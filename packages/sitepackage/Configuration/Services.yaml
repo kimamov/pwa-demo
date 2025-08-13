@@ -6,3 +6,8 @@ services:
 
   Skygate\Sitepackage\:
     resource: '../Classes/*'
+
+  # Controllers must be public so Extbase can retrieve them from the container
+  Skygate\Sitepackage\Controller\:
+    resource: '../Classes/Controller/*'
+    public: true

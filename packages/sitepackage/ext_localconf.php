@@ -3,6 +3,7 @@ use \TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 // use Skygate\Sitepackage\Controller\DemoApiController;
 use Skygate\Sitepackage\Controller\PostController;
 use Skygate\Sitepackage\Controller\StudentController;
+use Skygate\Sitepackage\Controller\UserController;
 
 
 defined('TYPO3') or die('Access denied.');
@@ -33,3 +34,10 @@ ExtensionUtility::configurePlugin(
     nonCacheableControllerActions: [StudentController::class => 'list'],
 );
 
+
+ExtensionUtility::configurePlugin(
+    extensionName: 'Sitepackage',
+    pluginName: 'User',
+    controllerActions: [UserController::class => 'get'],
+    nonCacheableControllerActions: [UserController::class => 'get'],
+);

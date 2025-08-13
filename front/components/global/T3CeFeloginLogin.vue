@@ -2,6 +2,7 @@
 import type {T3CeBaseProps} from '@t3headless/nuxt-typo3';
 import {useAuthStore} from "~/stores/authStore";
 import type { FormKitNode } from '@formkit/core'
+import { computed } from 'vue'
 
 interface T3CeImageWithDescription extends T3CeBaseProps {
     // bodytext: string,
@@ -10,7 +11,7 @@ interface T3CeImageWithDescription extends T3CeBaseProps {
     type?: any,
     data?: any
 }
-
+1
 const props = withDefaults(defineProps<T3CeImageWithDescription>(), {
     // bodytext: ''
 })
@@ -27,6 +28,7 @@ interface FormValues {
     pass: string;
     [key: string]: string;
 }
+
 
 function submitForm(formValues: FormValues, node: FormKitNode) {
     console.log({formValues, node})

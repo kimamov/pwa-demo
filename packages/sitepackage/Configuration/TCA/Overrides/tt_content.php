@@ -17,6 +17,11 @@ ExtensionUtility::registerPlugin(
     'Students (headless)'
 );
 
+ExtensionUtility::registerPlugin(
+    'Sitepackage',
+    'User',
+    'Logged in user data (headless)'
+);
 // ExtensionUtility::registerPlugin(
 //     extensionName: 'Sitepackage',
 //     pluginName: 'Comment',
