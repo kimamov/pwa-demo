@@ -130,17 +130,17 @@ Because Nuxt.js renders the first request as HTML, the flow doesn't differ from 
 SEO specific tags and content can be rendered as usual.
 
 ## Features
-# Typo3 content blocks friendsoftypo3/content-blocks
+### Typo3 content blocks friendsoftypo3/content-blocks
 implemented headless support for content blocks extension using netzbewegung/nb_headless_content_blocks https://github.com/Netzbewegung-Backend/nb_headless_content_blocks
 
-# Typo3 containers b13/container
+### Typo3 containers b13/container
 implemented headless support for Typo3 containers extension unsing fanor51/headless-container-support https://github.com/TYPO3-Headless/headless-container-support
-and implementing the example in this repository.
+and implemented the example in this repository.
 
-# Basic plugin examples
+### Basic plugin examples
 implemented very basic typo3 plugins with headless rendering.
 
-# Typo3 fe_login extension support
+### Typo3 fe_login extension support
 adjusted the Nuxt settings to correctly work with Typo3 EXT:fe_login and created basic Vue components for the FE.
 
 ## Creating custom components
