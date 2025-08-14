@@ -1,21 +1,37 @@
 // Example using Pinia (stores/auth.ts)
 import { defineStore } from 'pinia';
+import { useT3Api, navigateTo } from '#imports';
+import 'pinia-plugin-persistedstate';
+import { nextTick } from 'vue';
 
 interface User {
   uid: number;
   username: string;
-  email: string;
-  name: string;
 }
 
-interface UserResponse {
-  isLoggedIn: boolean;
-  user?: User;
+export type UserResponse = {
+  content: {
+    data: {
+      isLoggedIn: boolean;
+      user: User;
+    }
+  }
 }
 
 interface LoginCredentials {
   user: string;
   pass: string;
+} 
+
+export type LoginFormValues = LoginCredentials & Record<string, string>;
+
+export type LoginFormResponse = {
+  content: {
+    data: {
+      login: string,
+      status: "success" | "failure"
+    }
+  }
 }
 
 export const useAuthStore = defineStore('auth', {
@@ -24,7 +40,13 @@ export const useAuthStore = defineStore('auth', {
     user: null as User | null,
   }),
   actions: {
-    async login(credentials: LoginCredentials) {
+    async login(loginFormValues: LoginFormValues) {
+      if(this.loggedIn) {
+        this.logout(); 
+        return null
+      };
+      
+      const { $fetch } = useT3Api();
       try {
         // Perform login request to TYPO3 felogin endpoint
         // In a truly headless setup, felogin might redirect, or you might have a custom endpoint.
@@ -34,23 +56,28 @@ export const useAuthStore = defineStore('auth', {
         // Example: Simulating a successful login and fetching user
         // Replace with your actual API call
 
-        const { data: loginResponse, error: loginError } = await useFetch('/api/typo3/login', { // Your login endpoint
+        const res=await $fetch<LoginFormResponse>('/login/', { // Your login endpoint
           method: 'POST',
-          body: credentials,
+          credentials: "include",
+          body: new URLSearchParams({
+            ...loginFormValues,
+            responseElementId: "338"
+          }),
         });
-
-        if (loginError.value) throw loginError.value;
+        console.log(res);
+        if (res.content?.data?.status !== "success") throw new Error("Login failed");
 
         this.loggedIn = true;
-        this.user=true;
 
-        // If login sets a cookie, now try to fetch user data
-        // await this.fetchUser();
+        await nextTick();
+        const user = await this.fetchUser();
+        return user;
 
       } catch (error) {
         this.loggedIn = false;
         this.user = null;
         console.error('Login failed:', error);
+        throw error;
         // Handle login error (e.g., show a message)
       }
     },
@@ -58,38 +85,50 @@ export const useAuthStore = defineStore('auth', {
       const { $fetch } = useT3Api();
 
       try {
-        const response = await $fetch<UserResponse>('/login/get-user-data', {
-          credentials: 'include'
+        const response = await $fetch<UserResponse>('/user/', {
+          method: 'POST',
+          credentials: 'include',
+          body: new URLSearchParams({
+            responseElementId: '424'
+          })
         });
+        console.log({response});
 
-        if (response.isLoggedIn && response.user) {
-          this.loggedIn = true;
-          this.user = response.user;
-        } else {
-          this.logout();
+        if(!response.content?.data?.isLoggedIn || !response.content?.data?.user) {
+          console.log("User not logged in or could not be fetched. Logging out.");
+          this.logout(true);
+          return null;
         }
-      } catch (error) {
-        this.logout();
 
+        this.setUser(response.content?.data?.user);
+        return response.content?.data?.user;
+      
+      } catch (error) {
+        console.log(error);
+        
+        this.logout(true);
+        return null;
       }
     },
     setUser(userData: User) {
       this.loggedIn = true;
       this.user = userData;
     },
-    logout() {
+    logout(skipRedirect: boolean = false) {
+      this.loggedIn = false;
+      this.user = null;
       const { $fetch } = useT3Api();
 
       $fetch('/login?logintype=logout', {
         credentials: 'include'
-      }).then(res => {
+      }).then((res: unknown) => {
         console.log(res)
-      }).catch(e => {
+      }).catch((e: unknown) => {
         console.log(e)
       }).finally(() => {
-        this.loggedIn = false;
-        this.user = null;
-        navigateTo('/'); // Redirect to home or login page after logout
+        if(!skipRedirect) {
+          navigateTo('/'); // Redirect to home or login page after logout
+        }
       })
     },
   },

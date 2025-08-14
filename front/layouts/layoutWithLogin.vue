@@ -11,6 +11,10 @@ const navigation = computed(() => {
 console.log(navigation.value)
 const authStore=useAuthStore();
 
+onMounted(() => {
+    console.log("onMounted");
+    authStore.fetchUser();
+})
 
 </script>
 

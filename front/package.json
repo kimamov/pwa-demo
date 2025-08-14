@@ -14,6 +14,7 @@
     "@formkit/themes": "^1.6.9",
     "@pinia/nuxt": "^0.11.2",
     "@t3headless/nuxt-typo3": "^2.3.0",
+    "@vueuse/core": "^13.6.0",
     "formkit": "^1.6.9",
     "nuxt": "^3.18.1",
     "pinia": "^3.0.3",

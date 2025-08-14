@@ -1,6 +1,6 @@
 <template>
     <header class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-slate-200 text-slate-700">
-        <div class="container mx-auto flex flex-col flex-wrap items-center p-4 md:flex-row gap-4">
+        <div class="container mx-auto flex flex-col flex-wrap items-center px-4 md:flex-row gap-4">
             <NuxtLink
                 to="/"
                 class="mb-4 flex items-center font-medium text-gray-900 md:mb-0"
@@ -40,12 +40,37 @@
                 </li>
               </ul>
             </nav>
-            <div v-if="userData" class="user-avatar m-4 p-1 border-2">
-                USER (logged in)
-                <button class="bg-green-200 p-2 rounded" @click="authStore.logout()">
-                    click for logout
+            <div v-if="userData" class="relative">
+                <button
+                    class="user-avatar flex items-center justify-center w-10 h-10 rounded-full bg-slate-200 text-slate-700 font-bold focus:outline-none focus:ring-2 focus:ring-slate-400 transition"
+                    @click="showUserMenu = !showUserMenu"
+                    aria-label="User menu"
+                >
+                    {{ userData.username.charAt(0).toUpperCase() }}
                 </button>
-
+                <transition name="fade">
+                  <div
+                      v-if="showUserMenu"
+                      class="absolute right-0 mt-2 w-40 bg-white border border-slate-200 rounded-lg shadow-lg z-30 py-2"
+                  >
+                      <div class="px-4 py-2 text-slate-700 font-medium border-b border-slate-100">
+                        {{ userData.username }}
+                      </div>
+                      <NuxtLink
+                          to="/user/"
+                          class="block w-full text-left px-4 py-2 text-slate-700 hover:bg-slate-100 transition"
+                          @click="showUserMenu = false"
+                      >
+                          Profile
+                      </NuxtLink>
+                      <button
+                          class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 transition"
+                          @click="authStore.logout(); showUserMenu = false"
+                      >
+                          Logout
+                      </button>
+                  </div>
+                </transition>
             </div>
         </div>
         <div class="container mx-auto text-decoration-underline">
@@ -57,6 +82,12 @@
 
 <script lang="ts" setup>
 import {useAuthStore} from "~/stores/authStore";
+            import { ref } from 'vue'
+            import { onClickOutside } from '@vueuse/core'
+            const showUserMenu = ref(false)
+            // Optionally, close menu when clicking outside
+            const userMenuRef = ref<HTMLElement | null>(null)
+            onClickOutside?.(userMenuRef, () => showUserMenu.value = false)
 
 defineProps<{
   title?: string,
@@ -68,7 +99,10 @@ defineProps<{
       link: string;
     }>;
   }>;
-  userData: any;
+  userData: {
+    uid: number;
+    username: string;
+  } | null;
 }>();
 const authStore=useAuthStore();
 </script>
