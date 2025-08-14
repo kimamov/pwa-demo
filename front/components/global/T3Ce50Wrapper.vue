@@ -2,13 +2,10 @@
 import type { T3CeBaseProps } from '@t3headless/nuxt-typo3';
 
 interface T3Ce2ColContainer extends T3CeBaseProps {
-    // bodytext: string,
-    // assets?: T3File[]
     left?: T3CeBaseProps[]
     right?: T3CeBaseProps[]
 }
 const props = withDefaults(defineProps<T3Ce2ColContainer>(), {
-    // bodytext: ''
 })
 </script>
 
